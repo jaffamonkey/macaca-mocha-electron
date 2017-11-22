@@ -1,4 +1,4 @@
-![build status](https://travis-ci.org/jaffamonkey/macaca-mocha-electron.svg?branch=master)
+[![Build Status](https://travis-ci.org/jaffamonkey/macaca-mocha-electron.svg?branch=master)](https://travis-ci.org/jaffamonkey/macaca-mocha-electron)
 
 # Macaca Samples 
 
