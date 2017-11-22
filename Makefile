@@ -50,8 +50,11 @@ travis-desktop-electron: install
 	./node_modules/.bin/macaca doctor
 	browser=electron ./node_modules/.bin/macaca run --no-window --verbose -d ./macaca-test/desktop-browser-sample.test.js
 test-desktop-chrome:
-	macaca doctor
+	./node_modules/.bin/macaca doctor
 	CHROMEDRIVER_VERSION=2.33 browser=chrome macaca run --verbose --reporter macaca-reporter -d ./macaca-test/desktop-browser-sample.test.js
+travis-desktop-chrome:
+	./node_modules/.bin/macaca doctor
+	CHROMEDRIVER_VERSION=2.33 browser=chrome ./node_modules/.bin/macaca run --verbose --reporter macaca-reporter -d ./macaca-test/desktop-browser-sample.test.js
 test-desktop-puppeteer:
 	browser=puppeteer ./node_modules/.bin/macaca run --verbose --reporter macaca-reporter -d ./macaca-test/desktop-browser-sample.test.js
 travis-desktop-puppeteer:
