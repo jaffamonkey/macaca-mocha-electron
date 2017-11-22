@@ -1,3 +1,6 @@
+install:
+  - npm install macaca-chrome -g
+sudo: false
 os:
 #  - osx
   - linux
