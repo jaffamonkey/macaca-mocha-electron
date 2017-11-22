@@ -139,4 +139,4 @@ matrix:
         node_js:
           - 7
         script:
-          - make travis-desktop-electron
+          - make travis-desktop-browser
