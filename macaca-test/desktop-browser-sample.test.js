@@ -46,105 +46,105 @@ describe('macaca-test/desktop-browser-sample.test.js', function() {
 
   describe('macaca desktop sample', function() {
 
-    it('#0 should be ok', function() {
-      const url = path.join(__dirname, './pages/desktop-sample.html');
+    //it('#0 should be ok', function() {
+    //  const url = path.join(__dirname, './pages/desktop-sample.html');
+    //  return driver
+    //    .get(`file://${url}`)
+    //    .sleep(3000)
+    //    .setCookie({
+    //      url: pkg.homepage,
+    //      name: pkg.name,
+    //      value: pkg.name
+    //    })
+    //    .allCookies()
+    //    .then(d => {
+    //      console.log(d);
+    //    })
+    //    .execute(`document.querySelector('#select').selectedIndex = 1`)
+    //    .sleep(1000)
+    //    .elementById('select')
+    //    /*
+    //    .getProperty('value')
+    //    .then(value => {
+    //      value.should.be.equal('2');
+    //    })
+    //    */
+    //    .execute(`
+    //      var element = document.querySelector('#hover_text');
+    //      var event = document.createEvent('MouseEvent');
+    //      event.initMouseEvent('mouseover', true, true);
+    //      element.dispatchEvent(event);
+    //    `)
+    //    .elementById('hover_text')
+    //    .getComputedCss('color')
+    //    .then(value => {
+    //      value.should.containEql('255');
+    //    })
+    //    // https://github.com/macacajs/macaca-electron#windowalert
+    //    .execute(`
+    //      var e = document.createElement('div');
+    //      e.id = 'alert_msg';
+    //      window.alert = function() {
+    //        e.innerHTML = JSON.stringify(arguments[0]);
+    //        document.body.appendChild(e);
+    //      };
+    //    `)
+    //    .elementById('alert_button')
+    //    .click()
+    //    .elementById('alert_msg')
+    //    .text()
+    //    .then(value => {
+    //      value.should.containEql('this message is from alert');
+    //    })
+    //    .sleep(3000);
+    //});
+
+    it('#1 should works with online pages', function() {
+      const initialURL = 'https://www.baidu.com';
+
       return driver
-        .get(`file://${url}`)
+        .get(initialURL)
         .sleep(3000)
-        .setCookie({
-          url: pkg.homepage,
-          name: pkg.name,
-          value: pkg.name
-        })
-        .allCookies()
-        .then(d => {
-          console.log(d);
-        })
-        .execute(`document.querySelector('#select').selectedIndex = 1`)
-        .sleep(1000)
-        .elementById('select')
-        /*
-        .getProperty('value')
-        .then(value => {
-          value.should.be.equal('2');
-        })
-        */
-        .execute(`
-          var element = document.querySelector('#hover_text');
-          var event = document.createEvent('MouseEvent');
-          event.initMouseEvent('mouseover', true, true);
-          element.dispatchEvent(event);
-        `)
-        .elementById('hover_text')
-        .getComputedCss('color')
-        .then(value => {
-          value.should.containEql('255');
-        })
-        // https://github.com/macacajs/macaca-electron#windowalert
-        .execute(`
-          var e = document.createElement('div');
-          e.id = 'alert_msg';
-          window.alert = function() {
-            e.innerHTML = JSON.stringify(arguments[0]);
-            document.body.appendChild(e);
-          };
-        `)
-        .elementById('alert_button')
+        .elementById('kw')
+        .sendKeys('macaca')
+        .sleep(3000)
+        .elementById('su')
         .click()
-        .elementById('alert_msg')
-        .text()
-        .then(value => {
-          value.should.containEql('this message is from alert');
+        .sleep(5000)
+        .source()
+        .then(function(html) {
+          html.should.containEql('macaca');
         })
-        .sleep(3000);
+        .hasElementByCss('#head > div.head_wrapper')
+        .then(function(hasHeadWrapper) {
+          hasHeadWrapper.should.be.true();
+        })
+        .elementByXPathOrNull('//*[@id="kw"]')
+        .sendKeys(' elementByXPath')
+        .sleep(3000)
+        .elementById('su')
+        .click()
+        .sleep(5000)
+        .saveScreenshot('pic1');
     });
 
-    //it('#1 should works with online pages', function() {
-    //  const initialURL = 'https://www.baidu.com';
-    //
-    //  return driver
-    //    .get(initialURL)
-    //    .sleep(3000)
-    //    .elementById('kw')
-    //    .sendKeys('macaca')
-    //    .sleep(3000)
-    //    .elementById('su')
-    //    .click()
-    //    .sleep(5000)
-    //    .source()
-    //    .then(function(html) {
-    //      html.should.containEql('macaca');
-    //    })
-    //    .hasElementByCss('#head > div.head_wrapper')
-    //    .then(function(hasHeadWrapper) {
-    //      hasHeadWrapper.should.be.true();
-    //    })
-    //    .elementByXPathOrNull('//*[@id="kw"]')
-    //    .sendKeys(' elementByXPath')
-    //    .sleep(3000)
-    //    .elementById('su')
-    //    .click()
-    //    .sleep(5000)
-    //    .saveScreenshot('pic1');
-    //});
-    //
-    //it('#2 should works with web', function() {
-    //  const initialURL = 'https://www.baidu.com';
-    //  return driver
-    //    .get(initialURL)
-    //    .sleep(3000)
-    //    .elementById('kw')
-    //    .sendKeys('Macaca')
-    //    .sleep(3000)
-    //    .elementById('su')
-    //    .click()
-    //    .sleep(5000)
-    //    .source()
-    //    .then(function(html) {
-    //      html.should.containEql('Macaca');
-    //    })
-    //    .saveScreenshot('pic2');
-    //});
+    it('#2 should works with web', function() {
+      const initialURL = 'https://www.baidu.com';
+      return driver
+        .get(initialURL)
+        .sleep(3000)
+        .elementById('kw')
+        .sendKeys('Macaca')
+        .sleep(3000)
+        .elementById('su')
+        .click()
+        .sleep(5000)
+        .source()
+        .then(function(html) {
+          html.should.containEql('Macaca');
+        })
+        .saveScreenshot('pic2');
+    });
 
     it('#3 should works with iframe', function() {
       const iframeURL = 'https://xudafeng.github.io/use-tinyMce-textEditor/';
