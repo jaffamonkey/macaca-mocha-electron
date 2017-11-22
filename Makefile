@@ -1,5 +1,5 @@
 git_version = `git branch 2>/dev/null | sed -e '/^[^*]/d'-e's/* \(.*\)/\1/'`
-npm_bin= `npm bin`
+npm_bin= `./node_moodules/.bin`
 custom_port = `${npm_bin}/detect-port 3458 -s`
 
 all: test
