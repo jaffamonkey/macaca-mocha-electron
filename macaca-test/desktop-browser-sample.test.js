@@ -99,52 +99,52 @@ describe('macaca-test/desktop-browser-sample.test.js', function() {
         .sleep(3000);
     });
 
-    it('#1 should works with online pages', function() {
-      const initialURL = 'https://www.baidu.com';
-
-      return driver
-        .get(initialURL)
-        .sleep(3000)
-        .elementById('kw')
-        .sendKeys('macaca')
-        .sleep(3000)
-        .elementById('su')
-        .click()
-        .sleep(5000)
-        .source()
-        .then(function(html) {
-          html.should.containEql('macaca');
-        })
-        .hasElementByCss('#head > div.head_wrapper')
-        .then(function(hasHeadWrapper) {
-          hasHeadWrapper.should.be.true();
-        })
-        .elementByXPathOrNull('//*[@id="kw"]')
-        .sendKeys(' elementByXPath')
-        .sleep(3000)
-        .elementById('su')
-        .click()
-        .sleep(5000)
-        .saveScreenshot('pic1');
-    });
-
-    it('#2 should works with web', function() {
-      const initialURL = 'https://www.baidu.com';
-      return driver
-        .get(initialURL)
-        .sleep(3000)
-        .elementById('kw')
-        .sendKeys('Macaca')
-        .sleep(3000)
-        .elementById('su')
-        .click()
-        .sleep(5000)
-        .source()
-        .then(function(html) {
-          html.should.containEql('Macaca');
-        })
-        .saveScreenshot('pic2');
-    });
+    //it('#1 should works with online pages', function() {
+    //  const initialURL = 'https://www.baidu.com';
+    //
+    //  return driver
+    //    .get(initialURL)
+    //    .sleep(3000)
+    //    .elementById('kw')
+    //    .sendKeys('macaca')
+    //    .sleep(3000)
+    //    .elementById('su')
+    //    .click()
+    //    .sleep(5000)
+    //    .source()
+    //    .then(function(html) {
+    //      html.should.containEql('macaca');
+    //    })
+    //    .hasElementByCss('#head > div.head_wrapper')
+    //    .then(function(hasHeadWrapper) {
+    //      hasHeadWrapper.should.be.true();
+    //    })
+    //    .elementByXPathOrNull('//*[@id="kw"]')
+    //    .sendKeys(' elementByXPath')
+    //    .sleep(3000)
+    //    .elementById('su')
+    //    .click()
+    //    .sleep(5000)
+    //    .saveScreenshot('pic1');
+    //});
+    //
+    //it('#2 should works with web', function() {
+    //  const initialURL = 'https://www.baidu.com';
+    //  return driver
+    //    .get(initialURL)
+    //    .sleep(3000)
+    //    .elementById('kw')
+    //    .sendKeys('Macaca')
+    //    .sleep(3000)
+    //    .elementById('su')
+    //    .click()
+    //    .sleep(5000)
+    //    .source()
+    //    .then(function(html) {
+    //      html.should.containEql('Macaca');
+    //    })
+    //    .saveScreenshot('pic2');
+    //});
 
     it('#3 should works with iframe', function() {
       const iframeURL = 'https://xudafeng.github.io/use-tinyMce-textEditor/';
