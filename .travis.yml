@@ -28,8 +28,8 @@ matrix:
         env: TEST_SUITE=ios-browser
       - os: linux
         env: TEST_SUITE=android-browser
-      - os: linux
-        env: TEST_SUITE=desktop-browser
+#      - os: linux
+#        env: TEST_SUITE=desktop-browser
     include:
 #      - os: osx
 #        env: TEST_SUITE=ios
@@ -139,4 +139,4 @@ matrix:
         node_js:
           - 7
         script:
-          - make travis-desktop-puppeteer
+          - make travis-desktop-electron
