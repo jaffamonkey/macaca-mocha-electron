@@ -16,7 +16,6 @@
     "detect-port": "^1.1.4",
     "macaca-cli": "*",
     "macaca-reporter": "^1.0.20",
-    "macaca-electron": "latest",
     "macaca-simple-reportor": "^1.0.0",
     "macaca-utils": "*",
     "macaca-wd": "^1.0.17",
