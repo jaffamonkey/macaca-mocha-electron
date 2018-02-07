@@ -1,6 +1,5 @@
 sudo: true
 install:
-  - npm install macaca-chrome -g
   - npm install
 addons:
   apt:
