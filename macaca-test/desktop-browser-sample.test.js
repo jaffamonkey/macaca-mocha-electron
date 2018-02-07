@@ -31,7 +31,7 @@ describe('macaca-test/desktop-browser-sample.test.js', function() {
         userAgent: `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0 Safari/537.36 Macaca Custom UserAgent`,
         deviceScaleFactor: 2
       })
-      .setWindowSize(1280, 800);
+      // .setWindowSize(1280, 800);
   });
 
   afterEach(function() {
