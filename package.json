@@ -17,6 +17,7 @@
     "macaca": "*",
     "macaca-cli": "*",
     "macaca-electron": "*",
+    "macaca-android": "*",
     "macaca-reporter": "^1.0.20",
     "macaca-simple-reportor": "^1.0.0",
     "macaca-utils": "*",
